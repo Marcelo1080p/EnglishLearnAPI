@@ -20,10 +20,15 @@ namespace EnglishLearnAPI.Models.Course
         public CourseLevel Level { get; set; } 
 
         [DataType(DataType.Date)]
-        public DateTime CreationDate { get; set; } = DateTime.UtcNow; // Define a data atual como padrão
+        public DateTime CreationDate { get; set; } = DateTime.UtcNow; 
 
         // Relacionamentos
         public ICollection<QuizModel> Quizzes { get; set; }
         public ICollection<EnrollmentModel> Enrollments { get; set; }
+
+        public static implicit operator CourseModel(List<CourseModel> v)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
